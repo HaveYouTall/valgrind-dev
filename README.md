@@ -79,7 +79,6 @@ To install from the GIT repository:
      git clone git://sourceware.org/git/valgrind.git
      There are further instructions at
      http://www.valgrind.org/downloads/repository.html.
-     Or clone this modified code.
 
   1. cd into the source directory.
 
@@ -88,7 +87,7 @@ To install from the GIT repository:
 
   3. Continue with the following instructions...
 
-To install from a tar.bz2 distribution:
+To install from a tar.bz2 distribution: (Or clone this modified repository.)
 
   4. Run ./configure, with some options if you wish.  The only interesting
      one is the usual --prefix=/where/you/want/it/installed.
