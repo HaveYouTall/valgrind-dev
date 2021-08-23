@@ -79,6 +79,7 @@ To install from the GIT repository:
      git clone git://sourceware.org/git/valgrind.git
      There are further instructions at
      http://www.valgrind.org/downloads/repository.html.
+     Or clone this modified code.
 
   1. cd into the source directory.
 
