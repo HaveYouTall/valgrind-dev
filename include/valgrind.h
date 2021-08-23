@@ -6683,6 +6683,7 @@ typedef
 
           /* Wine support */
           VG_USERREQ__LOAD_PDB_DEBUGINFO = 0x1601,
+	  VG_USERREQ__GET_POISONFUNCS  = 0x1602,
 
           /* Querying of debug info. */
           VG_USERREQ__MAP_IP_TO_SRCLOC = 0x1701,

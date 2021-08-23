@@ -1975,6 +1975,17 @@ void do_client_request ( ThreadId tid )
       case VG_USERREQ__RUNNING_ON_VALGRIND:
          SET_CLREQ_RETVAL(tid, RUNNING_ON_VALGRIND+1);
          break;
+      
+      case VG_USERREQ__GET_POISONFUNCS: {
+         void (**poisonfunc) (void*, SizeT);
+         poisonfunc = (void (**) (void*, SizeT)) arg[1];
+         poisonfunc[0] = VG_(tdict).tool_poison;
+         poisonfunc[1] = VG_(tdict).tool_unpoison;
+         SET_CLREQ_RETVAL( tid, 0 );     /* return value is meaningless */
+
+	 break;
+      }
+
 
       case VG_USERREQ__PRINTF: {
          const HChar* format = (HChar *)arg[1];

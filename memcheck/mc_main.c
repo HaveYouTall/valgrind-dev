@@ -8085,6 +8085,18 @@ static Bool mc_mark_unaddressable_for_watchpoint (PointKind kind, Bool insert,
    return True;
 }
 
+
+
+void MC_(poison) (Word tid, void* addr, SizeT len) {
+  make_mem_undefined((Addr) addr, len);
+}
+
+void MC_(unpoison) (Word tid, void* addr, SizeT len) {
+  MC_(make_mem_defined) ((Addr) addr, len);
+}
+
+
+
 static void mc_pre_clo_init(void)
 {
    VG_(details_name)            ("Memcheck");
@@ -8125,6 +8137,8 @@ static void mc_pre_clo_init(void)
                                    mc_expensive_sanity_check);
    VG_(needs_print_stats)         (mc_print_stats);
    VG_(needs_info_location)       (MC_(pp_describe_addr));
+   VG_(needs_poison_func)         (MC_(poison),
+                		   MC_(unpoison));
    VG_(needs_malloc_replacement)  (MC_(malloc),
                                    MC_(__builtin_new),
                                    MC_(__builtin_new_aligned),
